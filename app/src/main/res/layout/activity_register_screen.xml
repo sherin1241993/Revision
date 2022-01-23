@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterScreen">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <TextView
+        android:id="@+id/loText"
+        android:layout_width="396dp"
+        android:layout_height="111dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="55dp"
+        android:text="Register"
+        android:textAlignment="center"
+        android:textSize="50dp"
+        android:textStyle="bold" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:labelFor="@+id/edit_reg"
+        android:id="@+id/reg_text_Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="186dp"
+        tools:ignore="HardcodedText">
+
+        <EditText
+            android:id="@+id/name_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="UserName"
+            tools:ignore="HardcodedText"
+            android:drawableLeft="@drawable/ic_baseline_person_24"
+            android:drawablePadding="20dp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/reg_text_Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:layout_below="@+id/reg_text_Name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        tools:ignore="HardcodedText">
+
+        <EditText
+            android:id="@+id/email_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            tools:ignore="HardcodedText"
+            android:drawableLeft="@drawable/email"
+            android:drawablePadding="20dp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/reg_text_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reg_text_Email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        tools:ignore="HardcodedText">
+
+        <EditText
+            android:id="@+id/phone_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            tools:ignore="HardcodedText"
+            android:drawableLeft="@drawable/phone"
+            android:drawablePadding="20dp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/reg_text_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/reg_text_phone"
+        android:layout_marginTop="18dp"
+        tools:ignore="HardcodedText">
+
+        <EditText
+            android:id="@+id/pass_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="password"
+            android:inputType="textPassword"
+            tools:ignore="HardcodedText"
+            android:drawableLeft="@drawable/password"
+            android:drawablePadding="20dp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reg_text_password"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="14dp">
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Male" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Female" />
+
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/but_save_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radio_group"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="10dp"
+        android:text="Save"
+        android:textAllCaps="false"
+        android:textSize="35sp"
+        tools:ignore="NotSibling" />
+</RelativeLayout>
+
+</ScrollView>

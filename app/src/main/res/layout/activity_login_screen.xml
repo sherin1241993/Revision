@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginScreen">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/loText"
+        android:layout_width="396dp"
+        android:layout_height="111dp"
+        android:text="Login"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="55dp"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_Name_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        tools:ignore="HardcodedText">
+
+        <EditText
+            android:id="@+id/name_log"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="UserName"
+            tools:ignore="HardcodedText"
+            android:drawableLeft="@drawable/ic_baseline_person_24"
+            android:drawablePadding="20dp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_password_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_Name_login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        tools:ignore="HardcodedText">
+
+        <EditText
+            android:id="@+id/pass_log"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            tools:ignore="HardcodedText"
+            android:drawableLeft="@drawable/password"
+            android:drawablePadding="20dp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/but_check_log"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/text_password_login"
+    android:layout_marginTop="45dp"
+    android:layout_centerHorizontal="true"
+    android:text="login"
+    android:textSize="35sp"
+    android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/back_to_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Register ??"
+        android:layout_below="@+id/but_check_log"/>
+</RelativeLayout>
+</ScrollView>
