@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
+import android.util.Log
 import android.util.Patterns
 import android.view.View
 import android.widget.EditText
@@ -29,32 +30,48 @@ class RegisterScreen : AppCompatActivity() {
 
 
 
-        but_save_reg.setOnClickListener {
-
-
-            if (name_reg.text.trim().isNotEmpty() && email_reg.text.trim()
-                    .isNotEmpty() && isEmailValid("$email_reg") && phone_reg.text.isNotEmpty() && pass_reg.text.trim()
-                    .isNotEmpty()) {
-
-
-
-                    if (isEmailValid("$email_reg") == false){
-                     email_reg.setError("enter valid email")
-                     Toast.makeText(this , "please enter valid email",Toast.LENGTH_SHORT).show()
-                     }
-                   else{
-                        var intent4 = Intent(this, RecyclerBook::class.java)
-                        startActivity(intent4)
+            but_save_reg.setOnClickListener {
+                when{
+                   TextUtils.isEmpty(name_reg.text.toString().trim())->{
+                       name_reg.setError("please Enter Username")
+                       Log.w("warning1","enter username")
+                   }
+                    TextUtils.isEmpty(email_reg.text.toString().trim())->{
+                        email_reg.setError("please Enter email")
+                        Log.w("warning2","enter email")
+                    }
+                    TextUtils.isEmpty(phone_reg.text.toString().trim())->{
+                        phone_reg.setError("please Enter phone number")
+                        Log.w("warning3","enter phone number")
                     }
 
-            }else {
-                Toast.makeText(this , "please  enter  all your data", Toast.LENGTH_SHORT).show()
+                    TextUtils.isEmpty(pass_reg.text.toString().trim())->{
+                        pass_reg.setError("please Enter pass")
+                    }
+                    name_reg.text.toString().isNotEmpty()&& email_reg.text.toString().isNotEmpty() &&
+                            phone_reg.text.toString().isNotEmpty() && pass_reg.text.toString().isNotEmpty()->{
+
+                        if(email_reg.text.toString().matches(Regex(EMAIL_REGEX))){
+                            var intent4 = Intent(this, RecyclerBook::class.java)
+                            startActivity(intent4)
+                        }  else{
+                            Toast.makeText(this, "enter valid email", Toast.LENGTH_SHORT).show()
+                        }
+
+
+
+
+                            }
+                }
+
+
+               // name_reg.text.trim().isNotEmpty() && email_reg.text.trim()
+                    //    .isNotEmpty() && isEmailValid("$email_reg") && phone_reg.text.isNotEmpty() && pass_reg.text.trim()
+                     //   .isNotEmpty()->
 
             }
-
-
-                //email format
-                    /*
+            //email format
+            /*
                 email_reg.addTextChangedListener(object : TextWatcher {
                     override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
@@ -79,8 +96,6 @@ class RegisterScreen : AppCompatActivity() {
                 */
 
 
-
-        }
 /*
     private fun validateEmptyForm(){
         when{
@@ -97,11 +112,25 @@ class RegisterScreen : AppCompatActivity() {
 
         }
       }
+
+
+      if (isEmailValid("$email_reg") == false){
+                     email_reg.setError("enter valid email")
+                     Toast.makeText(this , "please enter valid email",Toast.LENGTH_SHORT).show()
+                     }
+                   else{
+                        var intent4 = Intent(this, RecyclerBook::class.java)
+                        startActivity(intent4)
+                    }
 */
+
     }
 
     fun isEmailValid(email: String): Boolean {
+
+        Log.d("email","email is $email")
         return EMAIL_REGEX.toRegex().matches(email)
+
     }
 }
 

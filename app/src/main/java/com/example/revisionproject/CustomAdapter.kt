@@ -26,7 +26,7 @@ class CustomAdapter(val userList : ArrayList<data>, private val OnDetailsClickLi
         holder.my_data = data
 
         holder.itemView.setOnClickListener {
-            OnDetailsClickListnear.onDetailsClickListnear(position)
+            OnDetailsClickListnear.onDetailsClickListnear(data)
         }
 
 

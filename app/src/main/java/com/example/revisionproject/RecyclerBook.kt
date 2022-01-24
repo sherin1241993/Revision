@@ -13,6 +13,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_login_screen.*
 import kotlinx.android.synthetic.main.activity_recycler_book.*
+import kotlinx.android.synthetic.main.recycler_row.*
 
 class RecyclerBook : AppCompatActivity() , OnDetailsClickListnear{
     @SuppressLint("WrongConstant")
@@ -43,13 +44,7 @@ class RecyclerBook : AppCompatActivity() , OnDetailsClickListnear{
                     "منهما من حياة الرتابة و تسير بها إلى موعد مع القدر. (في قلبي أنثى عبرية) " +
                     "رواية مستوحاة من أحداث حقيقية في قالب روائي مشوق "))
         users.add(data("تراب الماس","احمد مراد" , R.drawable.trab_elmas,
-            "في قلب حارة اليهود في الجنوب التونسي تتشابك الأحداث حول المسلمة اليتيمة " +
-                    "التي تربت بين أحضان عائلة يهودية، و بين ثنايا " +
-                    "مدينة قانا العتيقة في الجنوب اللبناني تدخل بلبلة غير متوقعة في " +
-                    "حياة ندى التي نشأت على اليهودية بعيدا عن " +
-                    "والدها المسلم. تتتابع اللقاءات و الأحداث المثيرة حولهما لتخرج كلا " +
-                    "منهما من حياة الرتابة و تسير بها إلى موعد مع القدر. (في قلبي أنثى عبرية) " +
-                    "رواية مستوحاة من أحداث حقيقية في قالب روائي مشوق "))
+            "بدون موضوع "))
         users.add(data("يوتوبيا", "احمد خالد توفيق", R.drawable.youtubea,
             "في قلب حارة اليهود في الجنوب التونسي تتشابك الأحداث حول المسلمة اليتيمة " +
                     "التي تربت بين أحضان عائلة يهودية، و بين ثنايا " +
@@ -111,6 +106,7 @@ class RecyclerBook : AppCompatActivity() , OnDetailsClickListnear{
 
 
     //passing data from recycler with interface
+/*
     override fun onDetailsClickListnear(position: Int) {
 
    Toast.makeText(this , "book number"+position+"clicked",Toast.LENGTH_SHORT).show()
@@ -121,6 +117,15 @@ class RecyclerBook : AppCompatActivity() , OnDetailsClickListnear{
         intent.putExtra("subject",users[position].description)
         startActivity(intent)
     }
+   */
+    override fun onDetailsClickListnear(bookData: data) {
+        var intent = Intent(this , BookDetails::class.java)
+        intent.putExtra("name", bookData.bookName)
+        intent.putExtra("image",bookData.bookImage)
+        intent.putExtra("subject",bookData.description)
+        startActivity(intent)
+    }
+
 
 
     //menu
