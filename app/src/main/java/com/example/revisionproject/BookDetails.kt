@@ -7,19 +7,32 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.os.bundleOf
 import kotlinx.android.synthetic.main.activity_book_details.*
 
 class BookDetails : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_book_details)
+        //using bundle
+        val bundle = intent.extras
+        val name = bundle!!.getString("name", "Default")
+        val image = bundle.getInt("image",0)
+        val subject = bundle.getString("subject", "Default")
+
+        dt_Name.text = name
+        dt_Image.setImageResource(image)
+        dt_subject.text = subject
+
+        /*
+        //using intent
         val name = intent.getStringExtra("name")
         val image = intent.getIntExtra("image",0)
         val subject = intent.getStringExtra("subject")
         dt_Name.text = name
         dt_Image.setImageResource(image)
         dt_subject.text = subject
-
+*/
     }
 
 

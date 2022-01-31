@@ -119,11 +119,26 @@ class RecyclerBook : AppCompatActivity() , OnDetailsClickListnear{
     }
    */
     override fun onDetailsClickListnear(bookData: data) {
+
+        //using bundle
+        val bundle = Bundle()
+        bundle.putString("name", bookData.bookName)
+        bundle.putInt("image", bookData.bookImage)
+        bundle.putString("subject", bookData.description)
+        var intent = Intent(this , BookDetails::class.java)
+        intent.putExtra("data",bookData )
+        intent.putExtras(bundle)
+        startActivity(intent)
+
+
+        //USUNG INTENT
+        /*
         var intent = Intent(this , BookDetails::class.java)
         intent.putExtra("name", bookData.bookName)
         intent.putExtra("image",bookData.bookImage)
         intent.putExtra("subject",bookData.description)
         startActivity(intent)
+         */
     }
 
 
@@ -162,8 +177,16 @@ class RecyclerBook : AppCompatActivity() , OnDetailsClickListnear{
                     var intent = Intent(this , LoginScreen::class.java)
                     startActivity(intent)
 
-
+/*
+                    myshared?.edit()?.clear()?.apply()
+                    name_log.setText("").toString()
+                    pass_log.setText("").toString()
+*/
                 }
+
+
+
+
 
 
                 // Creates a Negative Button with a Click Listener

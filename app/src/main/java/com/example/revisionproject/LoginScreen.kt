@@ -12,12 +12,12 @@ import kotlinx.android.synthetic.main.activity_register_screen.*
 
 class LoginScreen : AppCompatActivity() {
     var myshared : SharedPreferences?= null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_screen)
 
-        myshared = getSharedPreferences("myshared", 0)
+
+
 
 
         but_check_log.setOnClickListener {
@@ -29,8 +29,9 @@ class LoginScreen : AppCompatActivity() {
 
                 //mode of file 0 private , Readable 1 ,written  2
                 // make xml file his name is myshared
+                myshared = getSharedPreferences("myshared", 0)
                 var editor : SharedPreferences.Editor = myshared!!.edit()
-                var  userData = name_log.text.toString()
+                var userData = name_log.text.toString()
                 var userPass = pass_log.text.toString()
 
                 editor.apply {
@@ -58,25 +59,30 @@ class LoginScreen : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        val sharedUserName = myshared?.getString("name","")
-        name_log.setText("$sharedUserName")
-        val sharedUserPass = myshared?.getString("pass","")
-        pass_log.setText("$sharedUserPass")
+        Toast.makeText(this , "app started",Toast.LENGTH_SHORT).show()
+
+
     }
 
     override fun onDestroy() {
         super.onDestroy()
         Toast.makeText(this , "app destroyed",Toast.LENGTH_SHORT).show()
-        myshared?.edit()?.clear()?.apply()
-        //var editor : SharedPreferences.Editor = myshared!!.edit()
-       // editor?.clear()
-       // editor?.apply()
-        name_log.setText("").toString()
-        pass_log.setText("").toString()
+
     }
     override fun onStop() {
-        Toast.makeText(applicationContext,"onStop",Toast.LENGTH_LONG).show()
+        Toast.makeText(applicationContext," app stopped",Toast.LENGTH_LONG).show()
 
         super.onStop()
+    }
+
+    override fun onRestart() {
+        Toast.makeText(applicationContext,"app Restart",Toast.LENGTH_LONG).show()
+        super.onRestart()
+        /*
+        val sharedUserName = myshared?.getString("name","")
+        name_log.setText("$sharedUserName")
+        val sharedUserPass = myshared?.getString("pass","")
+        pass_log.setText("$sharedUserPass")
+         */
     }
 }
